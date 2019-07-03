@@ -44,6 +44,16 @@
     <script type="text/javascript" src="{{ asset('js/dropzone.min.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('js/upload.js') }}"></script> 
     <!-- <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>     -->
+    <script src="//vjs.zencdn.net/4.12/video.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            $('html, body').animate({
+                scrollTop: $('.player').offset().top
+            }, 'slow');
+        });
+    </script>
 
   </body>
 </html>

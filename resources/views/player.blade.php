@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="row">
+    <div class="row player">
         <div class="col-lg-12">
             <h3>{{ $title }}</h3>
             <!-- <video id='my-video' class='video-js' controls preload='auto' width='640' height='264' poster="{{ asset('thumbs/'.$vid->thumbnail) }}" data-setup='{}'>
@@ -31,10 +31,3 @@
     </div>
 
 @endsection
-    <script src="//vjs.zencdn.net/4.12/video.js"></script>
-
-    <script>
-        // videojs(document.getElementById('player'), {}, function() {
-        //     // This is functionally the same as the previous example.
-        // });
-    </script>
