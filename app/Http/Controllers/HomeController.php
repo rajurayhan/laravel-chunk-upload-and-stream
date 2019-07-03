@@ -12,6 +12,8 @@ use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use App\Helpers\VideoStream;
 use App\Videos;
 use Log;
+use Thumbnail;
+use FFMpeg;
 
 
 class HomeController extends Controller {
@@ -81,12 +83,14 @@ class HomeController extends Controller {
                 $videoObj   = new Videos();
 
                 $thumbnail      = $this->getThumnail($fileName,$fileObj['path']);
+                // $duration       = $this->getDuration($fileObj['path']);
 
                 $videoObj->name             = $name; 
                 $videoObj->ip               = $ip;         
                 $videoObj->file             = $fileName; 
                 $videoObj->fileType         = $fileType; 
-                $videoObj->thumbnail        = $thumbnail; 
+                $videoObj->thumbnail        = $thumbnail;
+                // $videoObj->duration         = $duration; 
 
                 $videoObj->save();
 
@@ -121,13 +125,21 @@ class HomeController extends Controller {
         return $response;
     }
 
-    private function getThumnail($fileName, $file)
+    private function getThumnail($fileName, $vedioFile)
     {
         
-
+        $path = storage_path("app/uploads/thumbs/");
         $fileName   = $fileName.'_thumb.jpg';
 
-        return $fileName;
+        $thumbnail_status = Thumbnail::getThumbnail($vedioFile,$path,$fileName,5);
+
+        if($thumbnail_status){
+            return $fileName;
+        }
+        else{
+            return 'NULL';
+        }
+        
     }
 
 
