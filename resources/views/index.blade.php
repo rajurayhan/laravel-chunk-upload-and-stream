@@ -2,14 +2,6 @@
 
 
 @section('content')
-
-    <section>
-        <ul>
-            @foreach($videos as $vid)
-                <li><a href="{{ route('player', $vid->id) }}">{{ $vid->name }}</a></li>
-            @endforeach
-        </ul>
-    </section>
     
 	<section>
         <h1 id="try-it-out">Upload Video!</h1>
@@ -37,6 +29,19 @@
             <button type="button" id="submitBtn" class="btn btn-info">Submit</button>
         </div>
         </form>
+    </section>
+    <section style="margin-top: 50px;">
+        <h4>Recent Uploads</h4>
+        <div class="row">
+            @foreach($videos as $vid)
+                <div class="col-sm-4">
+                    <a href="{{ route('play', $vid->id) }}">
+                        <img src="{{ asset('thumbs/'.$vid->thumbnail) }}" class="img img-thumbnail">
+                        <h5>{{ $vid->name }}</h5>   
+                    </a>
+                </div>
+            @endforeach
+        </div>
     </section>
 
 

@@ -1,25 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{$title}}</title>
+@extends('master')
 
-    <link href="//vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
-</head>
-<body>
 
-    <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
-           controls preload="auto" height="600" width="980">
+@section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>{{ $title }}</h3>
+            <!-- <video id='my-video' class='video-js' controls preload='auto' width='640' height='264' poster="{{ asset('thumbs/'.$vid->thumbnail) }}" data-setup='{}'>
+                <source src="{{ route('stream', $video) }}" type="{{$mime}}" />
+                    <p class='vjs-no-js'>
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                    </p>
+            </video> -->
+            <video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" height="auto" width="100%" poster="{{ asset('thumbs/'.$vid->thumbnail) }}">
+                <source src="{{ route('stream', $video) }}" type="{{$mime}}" />
+            </video>
+        </div>
+    </div>
 
-        <source src="{{ route('video', $video) }}" type="{{$mime}}" />
-    </video>
+    <h4 style="margin-top: 25px;">You may also Watch - </h4>
+    <div class="row">
+        @foreach($videos as $vido)
+            <div class="col-sm-4">
+                <a href="{{ route('play', $vido->id) }}">
+                    <img src="{{ asset('thumbs/'.$vido->thumbnail) }}" class="img img-thumbnail">
+                    <h5>{{ $vido->name }}</h5>   
+                </a>
+            </div>
+        @endforeach
+    </div>
 
+@endsection
     <script src="//vjs.zencdn.net/4.12/video.js"></script>
 
     <script>
-        videojs(document.getElementById('example_video_1'), {}, function() {
-            // This is functionally the same as the previous example.
-        });
+        // videojs(document.getElementById('player'), {}, function() {
+        //     // This is functionally the same as the previous example.
+        // });
     </script>
-</body>
-</html>

@@ -23,7 +23,7 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Chunk File Upload</h1>
+          <a href="/"><h2 class="jumbotron-heading">Chunk Video Uploader and Streamer</h2></a>
           
         </div>
       </section>

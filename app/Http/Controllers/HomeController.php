@@ -21,7 +21,7 @@ class HomeController extends Controller {
 
 	public function index() {
         $vidObj     = new Videos();
-        $videos     = $vidObj->get();
+        $videos     = $vidObj->take(9)->get();
 
 		return view('index', compact('videos'));
 	}
@@ -34,7 +34,14 @@ class HomeController extends Controller {
         $video = $vid->file;
         $mime = $vid->fileType;
         $title = $vid->name;
-        return view('player')->with(compact('video', 'mime', 'title', 'vid'));
+
+        $videos     = $vidObj->where('id', '!=', $vid->id)->take(6)->get();
+
+        // exit($videos);
+
+        // return $videos;
+
+        return view('player')->with(compact('video', 'mime', 'title', 'vid', 'videos'));
     }
 
     public function stream($filename)
@@ -128,7 +135,7 @@ class HomeController extends Controller {
     private function getThumnail($fileName, $vedioFile)
     {
         
-        $path = storage_path("app/uploads/thumbs/");
+        $path = public_path("thumbs/");
         $fileName   = $fileName.'_thumb.jpg';
 
         $thumbnail_status = Thumbnail::getThumbnail($vedioFile,$path,$fileName,5);
