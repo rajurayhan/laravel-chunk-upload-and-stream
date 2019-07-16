@@ -21,6 +21,13 @@ Dropzone.options.fileUpload = {
             else{
                 alert('Name cannot be empty!');
             }
+            // e.preventDefault();
+            // if(isValid){
+            //     myDropzone.processQueue();
+            // }
+            // else{
+            //     alert('Please fill required fields');
+            // }
             
         });
 
@@ -30,7 +37,7 @@ Dropzone.options.fileUpload = {
             $.each(data, function(key, el) {
                 formData.append(el.name, el.value);
             });
-            
+
             formData.append("thumb",$('#thumb')[0].files[0]); // Added additional Image File.
 
             console.log(formData);
@@ -71,4 +78,13 @@ Dropzone.options.fileUpload = {
             console.log('canceled');
         });
     }
+}
+
+function isValid() {
+    var isValid = true;
+    $('input').filter('[required]:visible').each(function() {
+        if ( $(this).val() === '' )
+        isValid = false;
+    });
+    return isValid;
 }

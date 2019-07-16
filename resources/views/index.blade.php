@@ -24,14 +24,14 @@
         <div id="details">
             <div class="form-group">
                 <label for="name">Name :</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" required="required">
             </div>
 
             <div class="form-group">
                 <label for="thumb">Thumb :</label>
-                <input type="file" class="form-control" id="thumb" name="thumb">
+                <input type="file" class="form-control" id="thumb" name="thumb" required="required">
             </div>
-            <button type="button" id="submitBtn" class="btn btn-info">Submit</button>
+            <button type="submit" id="submitBtn" class="btn btn-info">Submit</button>
         </div>
         </form>
     </section>
