@@ -14,6 +14,7 @@ use App\Videos;
 use Log;
 use Thumbnail;
 use FFMpeg;
+use Image;
 
 
 class HomeController extends Controller {
@@ -85,7 +86,10 @@ class HomeController extends Controller {
                 $fileName       = $fileObj['file'];
                 $fileType       = $fileObj['mime'];
 
-                
+                $image = $request->file('thumb');
+                $filename  = time() . '.' . $image->getClientOriginalExtension();
+                $path = ('images/' . $filename);
+                Image::make($image->getRealPath())->save($path);
 
                 $videoObj   = new Videos();
 
@@ -97,7 +101,7 @@ class HomeController extends Controller {
                 $videoObj->file             = $fileName; 
                 $videoObj->fileType         = $fileType; 
                 $videoObj->thumbnail        = $thumbnail;
-                // $videoObj->duration         = $duration; 
+                $videoObj->image            = $path; 
 
                 $videoObj->save();
 

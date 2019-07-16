@@ -3,7 +3,7 @@
 
 @section('content')
     
-	<section>
+    <section>
         <h1 id="try-it-out">Upload Video!</h1>
 
         <div class="progress" style="height: 20px; margin-bottom: 25px;">
@@ -24,7 +24,12 @@
         <div id="details">
             <div class="form-group">
                 <label for="name">Name :</label>
-                <input type="name" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="thumb">Thumb :</label>
+                <input type="file" class="form-control" id="thumb" name="thumb">
             </div>
             <button type="button" id="submitBtn" class="btn btn-info">Submit</button>
         </div>

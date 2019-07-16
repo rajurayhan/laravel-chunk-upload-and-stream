@@ -30,6 +30,11 @@ Dropzone.options.fileUpload = {
             $.each(data, function(key, el) {
                 formData.append(el.name, el.value);
             });
+            
+            formData.append("thumb",$('#thumb')[0].files[0]); // Added additional Image File.
+
+            console.log(formData);
+
         });
 
         this.on('uploadprogress', function(file, progress, bytesSent) {
