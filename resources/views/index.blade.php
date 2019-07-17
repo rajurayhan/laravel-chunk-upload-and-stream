@@ -53,9 +53,6 @@
 @endsection
 
 @section('footer')
-<script type="text/javascript">
-    var uploadURL           = '{{ route("uploader") }}';
-    var uploadCallBack      =  '{{ route("home") }}';
-</script>
+
 <script src="//vjs.zencdn.net/4.12/video.js"></script>
 @endsection
