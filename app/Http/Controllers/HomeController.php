@@ -101,7 +101,7 @@ class HomeController extends Controller {
                 $videoObj->file             = $fileName; 
                 $videoObj->fileType         = $fileType; 
                 // $videoObj->thumbnail        = $thumbnail;
-                $videoObj->image            = $path; 
+                // $videoObj->image            = $path; 
                 $videoObj->thumbnail        = $path;
 
                 $videoObj->save();
