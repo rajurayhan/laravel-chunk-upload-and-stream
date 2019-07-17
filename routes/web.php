@@ -11,10 +11,10 @@ use App\Videos;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('stream');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/helper', 'HomeController@helper');
 
-Route::post('/file-upload', 'HomeController@upload');
+Route::post('/file-upload', 'HomeController@upload')->name('uploader');
 
 Route::get('/play/{id}', 'HomeController@play')->name('play');
 

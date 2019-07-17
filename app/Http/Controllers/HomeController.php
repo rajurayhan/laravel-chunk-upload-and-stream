@@ -36,7 +36,7 @@ class HomeController extends Controller {
         $mime = $vid->fileType;
         $title = $vid->name;
 
-        $videos     = $vidObj->where('id', '!=', $vid->id)->take(6)->get();
+        $videos     = $vidObj->where('id', '!=', $vid->id)->take(9)->get();
 
         // exit($videos);
 
@@ -93,15 +93,16 @@ class HomeController extends Controller {
 
                 $videoObj   = new Videos();
 
-                $thumbnail      = $this->getThumnail($fileName,$fileObj['path']);
+                //$thumbnail      = $this->getThumnail($fileName,$fileObj['path']);
                 // $duration       = $this->getDuration($fileObj['path']);
 
                 $videoObj->name             = $name; 
                 $videoObj->ip               = $ip;         
                 $videoObj->file             = $fileName; 
                 $videoObj->fileType         = $fileType; 
-                $videoObj->thumbnail        = $thumbnail;
+                // $videoObj->thumbnail        = $thumbnail;
                 $videoObj->image            = $path; 
+                $videoObj->thumbnail        = $path;
 
                 $videoObj->save();
 

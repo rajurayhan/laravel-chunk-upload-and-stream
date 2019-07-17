@@ -12,7 +12,7 @@
                         <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
                     </p>
             </video> -->
-            <video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" height="auto" width="100%" poster="{{ asset('thumbs/'.$vid->thumbnail) }}">
+            <video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" height="auto" width="100%" poster="{{ asset('/'.$vid->thumbnail) }}">
                 <source src="{{ route('stream', $video) }}" type="{{$mime}}" />
             </video>
         </div>
@@ -23,7 +23,7 @@
         @foreach($videos as $vido)
             <div class="col-sm-4">
                 <a href="{{ route('play', $vido->id) }}">
-                    <img src="{{ asset('thumbs/'.$vido->thumbnail) }}" class="img img-thumbnail">
+                    <img src="{{ asset('/'.$vido->thumbnail) }}" class="img img-thumbnail">
                     <h5>{{ $vido->name }}</h5>   
                 </a>
             </div>

@@ -41,7 +41,7 @@
             @foreach($videos as $vid)
                 <div class="col-sm-4">
                     <a href="{{ route('play', $vid->id) }}">
-                        <img src="{{ asset('thumbs/'.$vid->thumbnail) }}" class="img img-thumbnail">
+                        <img src="{{ asset('/'.$vid->thumbnail) }}" class="img img-thumbnail">
                         <h5>{{ $vid->name }}</h5>   
                     </a>
                 </div>
@@ -52,6 +52,10 @@
 
 @endsection
 
+@section('footer')
 <script type="text/javascript">
-    
+    var uploadURL           = '{{ route("uploader") }}';
+    var uploadCallBack      =  '{{ route("home") }}';
 </script>
+<script src="//vjs.zencdn.net/4.12/video.js"></script>
+@endsection

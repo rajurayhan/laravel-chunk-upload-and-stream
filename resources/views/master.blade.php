@@ -23,7 +23,7 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <a href="/"><h2 class="jumbotron-heading">Chunk Video Uploader and Streamer</h2></a>
+          <a href="{{ route('home') }}"><h2 class="jumbotron-heading">Chunk Video Uploader and Streamer</h2></a>
           
         </div>
       </section>
@@ -44,7 +44,7 @@
     <script type="text/javascript" src="{{ asset('js/dropzone.min.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('js/upload.js') }}"></script> 
     <!-- <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>     -->
-    <script src="//vjs.zencdn.net/4.12/video.js"></script>
+    
 
 @yield('footer')
 

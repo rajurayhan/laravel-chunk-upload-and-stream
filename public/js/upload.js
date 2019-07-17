@@ -67,7 +67,7 @@ Dropzone.options.fileUpload = {
 
         this.on('complete', function(file) {
             console.log('completed');
-            window.location = '/';
+            window.location = uploadCallBack;
         });
 
         this.on('error', function(file, error) {
